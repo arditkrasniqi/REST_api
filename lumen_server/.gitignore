@@ -1,0 +1,14 @@
+/vendor
+/.idea
+Homestead.json
+Homestead.yaml
+.env
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.vscode
+.vscode
