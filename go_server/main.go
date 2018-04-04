@@ -53,8 +53,6 @@ func GetUsersEndpoint(w http.ResponseWriter, req *http.Request) {
 	json.NewEncoder(w).Encode(users)
 }
 
-var results []string
-
 func InsertUserEndpoint(w http.ResponseWriter, req *http.Request) {
 	_, err := db.Query("insert into users(name, email) values('" + req.FormValue("name") + "','" + req.FormValue("email") + "')")
 	if err != nil {
