@@ -12,8 +12,7 @@ import (
 )
 
 var people []Person
-var users []user
-var db, dberror = sql.Open("mysql", "root:krasniqi01@tcp(localhost:3306)/test")
+var db *sql.DB
 
 type Person struct {
 	ID        string   `json:"id,omitempty"`
@@ -38,6 +37,7 @@ func GetPersonEndpoint(w http.ResponseWriter, req *http.Request) {
 }
 
 func GetUsersEndpoint(w http.ResponseWriter, req *http.Request) {
+	var users []user
 	rows, err := db.Query("SELECT * FROM users")
 	if err != nil {
 		log.Fatal(err)
@@ -80,7 +80,8 @@ func UpdateUserEndpoint(w http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-	dberror = db.Ping()
+	db, _ = sql.Open("mysql", "root:krasniqi01@tcp(localhost:3306)/test")
+	dberror := db.Ping()
 	if dberror != nil {
 		log.Fatal(dberror)
 	}
