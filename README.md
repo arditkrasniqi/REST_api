@@ -1,1 +1,6 @@
-# REST API using Angular 5 & Lumen
+# REST API boilerplate
+
+##### Technologies
+  - Lumen
+  - Go
+  - Angular 5
